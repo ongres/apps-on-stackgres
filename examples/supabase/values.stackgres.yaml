@@ -34,9 +34,6 @@ studio:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /
     tls: []
-      # - secretName: studio.localhost
-      #   hosts:
-      #     - studio.localhost
     hosts:
       - host: studio.localhost
         paths:
@@ -168,9 +165,6 @@ kong:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /
     tls: []
-      # - secretName: localhost
-      #   hosts:
-      #     - localhost
     hosts:
       - host: localhost
         paths:

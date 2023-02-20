@@ -397,9 +397,4 @@ spec:
     script: |
       alter role authenticator inherit;
       alter role authenticator superuser;
-  - name: 06-supabase-admin-password
-    scriptFrom:
-      secretKeyRef:
-        name: supabase-admin-password
-        key: supabase-admin-password.sql
 ---
