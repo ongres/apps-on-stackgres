@@ -1,0 +1,24 @@
+apiVersion: stackgres.io/v1
+kind: SGCluster
+metadata:
+  name: supabase-db
+spec:
+  instances: 2
+  pods:
+    persistentVolume: 
+      size: '5Gi'
+  configurations:
+    sgPoolingConfig: supabase-db
+  postgres:
+    version: '14'
+    extensions:
+    - name: pgsodium
+    - name: pg_graphql
+    - name: pg_stat_statements
+    - name: pgcrypto
+    - name: pgjwt
+    - name: uuid-ossp
+  managedSql:
+    scripts:
+    - sgScript: supabase-initdb
+---
