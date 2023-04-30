@@ -1,0 +1,17 @@
+apiVersion: stackgres.io/v1
+kind: SGCluster
+metadata:
+  namespace: ferretdb
+  name: postgres
+spec:
+  postgres:
+    version: '15'
+  instances: 1
+  pods:
+    persistentVolume:
+      size: '5Gi'
+  configurations:
+    sgPoolingConfig: sgpoolingconfig1
+  managedSql:
+    scripts:
+      - sgScript: createuserdb

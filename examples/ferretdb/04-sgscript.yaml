@@ -1,0 +1,15 @@
+apiVersion: stackgres.io/v1
+kind: SGScript
+metadata:
+  name: createuserdb
+  namespace: ferretdb
+spec:
+  scripts:
+  - name: create-user
+    scriptFrom:
+      secretKeyRef:
+        name: createuser
+        key: sql
+  - name: create-database
+    script: |
+            create database ferretdb owner ferretdb encoding 'UTF8' locale 'en_US.UTF-8' template template0;
